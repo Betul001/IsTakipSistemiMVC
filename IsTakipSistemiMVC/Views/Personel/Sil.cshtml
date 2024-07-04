@@ -1,0 +1,27 @@
+﻿
+@model IsTakipSistemiMVC.Models.Personeller
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_LayoutSistemYoneticisi.cshtml";
+}
+
+<div class="container mt-5">
+    @using (Html.BeginForm("Sil", "Personel", FormMethod.Post))
+    {
+        @Html.HiddenFor(m=>m.personelId)
+        <div class="h-100 p-5 text-dark bg-light rounded-3">
+            <h2>@Model.personelAdSoyad isimli personel silinecek</h2>
+            <p>Emin Misiniz?</p>
+            <div class="row g-3 text-center">
+                <div class="col">
+                    <button class="btn btn-danger col-4" type="submit">Sil</button>
+                    <div class="col">
+                        @Html.ActionLink("Vazgeç","Index","Personel",new {} ,new {@class="btn btn-warning col-4"} )
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

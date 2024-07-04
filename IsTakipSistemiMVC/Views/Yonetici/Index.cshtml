@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+
+    @model IEnumerable<IsTakipSistemiMVC.Models.ToplamIs>
+}
+
+<h2>@ViewBag.birimAd birimi için yöneticisiniz</h2>
+
+<div class="container mt-5">
+
+    <div class="row mb-3">
+        <div class="col">
+            @Html.ActionLink("Ayın Elemanı","AyinElemani","Yonetici",new {},new {@class= "btn btn-info w-50 mx-5" })
+        </div>
+    </div>
+
+    <ul class="list-group w-50 mx-5">
+        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-primary">
+            @ViewBag.birimAd birimi için çalışanların yapılan toplam işleri
+        </li>
+        @foreach (var item in Model)
+        {
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @item.personelAdSoyad
+                <span class="badge bg-primary rounded-pill"> Yapılan İş Toplamı: @item.toplamIs</span> 
+            </li>
+
+        }
+    </ul>
+</div>

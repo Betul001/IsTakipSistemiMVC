@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsTakipSistemiMVC", "IsTakipSistemiMVC\IsTakipSistemiMVC.csproj", "{0BBDFB0E-37FC-4445-8872-121DDB0F9769}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BBDFB0E-37FC-4445-8872-121DDB0F9769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BBDFB0E-37FC-4445-8872-121DDB0F9769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BBDFB0E-37FC-4445-8872-121DDB0F9769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BBDFB0E-37FC-4445-8872-121DDB0F9769}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6651131-FECF-40D6-AF1D-810EC38F6144}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<IsTakipSistemiMVC.Models.Personeller>
+
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSistemYoneticisi.cshtml";
+}
+
+ 
+<div class="container mt-5">
+
+    <div class="mb-4">
+        @Html.ActionLink("Yeni Personel Ekle", "Olustur", "Personel", new { }, new {@class="btn btn-primary" });
+    </div>
+
+    @Html.Grid(Model).Columns(column =>
+{
+    column.Add(m => m.personelAdSoyad).Titled("Personel Ad Soyad").Sortable(true).Filterable(true);
+    column.Add(m => m.Birimler.birimAd).Titled("Birim Ad").Filterable(true);
+    column.Add(m => m.YetkiTurler.yetkiTurAd).Titled("Yetki Tür Ad").Filterable(true);
+    column.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Güncelle", "Guncelle", "Personel", new { id = o.personelId }, new { @class = "btn btn-success" }));
+    column.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(30)
+    .RenderValueAs(o => Html.ActionLink("Sil", "Sil", "Personel", new { id = o.personelId }, new { @class = "btn btn-danger" }));
+
+}).WithPaging(4)
+
+})
+</div>
+

@@ -1,0 +1,84 @@
+﻿
+
+@model IsTakipSistemiMVC.Models.Personeller
+
+@{
+    if (Model.personelYetkiTurId == 1)
+    {
+        Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+    }
+    if (Model.personelYetkiTurId == 2)
+    {
+        Layout = "~/Views/Shared/_LayoutCalisan.cshtml";
+    }
+}
+
+<div class="container mt-5">
+    <div class="h-100 p-5 text-dark bg-light rounded-3">
+        <h2>Merhaba @Model.personelAdSoyad</h2>
+        <p>Parolanızı Değiştirmek İçin Eski Parolanızı vr Yrni Parola Tekrarını Giriniz</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    @using (Html.BeginForm("Index", "SifreKontrol", FormMethod.Post))
+    {
+        @Html.HiddenFor(m=>m.personelId)
+
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-4">
+            <label for="eskiParola" class="col-form-label">Eski Parola:</label>
+        </div>
+        <div class="col-4">
+            <input type="password" id="eskiParola" class="form-control" name="eskiParola"/>
+        </div>
+    </div>
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-4">
+            <label for="yeniParola" class="col-form-label">Yeni Parola:</label>
+        </div>
+        <div class="col-4">
+            <input type="password" id="yeniParola" name="yeniParola" class="form-control" aria-describedby="passwordHelp" />
+        </div>
+        <div class="col-4">
+            <span class="form-text" id="passwordHelp">
+                Parola 6 ile 15 karakter uzunluğunda olmalıdır!
+            </span>
+        </div>
+    </div>
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-4">
+            <label for="yeniParolaKontrol" class="col-form-label">Yeni Parola Tekrar:</label>
+        </div>
+        <div class="col-4">
+            <input type="password" id="yeniParolaKontrol" name="yeniParolaKontrol" class="form-control" />
+        </div>
+    </div>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Parola Değiştir</button>
+        </div>
+    </div>
+    <br /><br />
+        if(ViewBag.mesaj != null)
+                {
+                    <div class="@ViewBag.sitil" role="alert">
+                        @ViewBag.mesaj
+                    </div>
+                }
+    }
+</div>
+
+<script>
+    const myTimeout = setTimeout(yonlendir, 3000);
+    function yonlendir()
+    {
+        if (@ViewBag.yetkiTurId == 1) {
+            window.location.href = "/Yonetici/Index"
+        }
+        else
+        {
+            window.location.href = "/Calisan/Index"
+        }
+    }
+</script>
